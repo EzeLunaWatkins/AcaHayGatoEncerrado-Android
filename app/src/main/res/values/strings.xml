@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Aca Hay Gato Encerrado</string>
+    <string name="title_activity_laberinto_seleccionado">LaberintoSeleccionado</string>
 </resources>

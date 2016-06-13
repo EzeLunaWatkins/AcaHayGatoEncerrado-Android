@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LaberintoSeleccionadoActivity"
+    tools:showIn="@layout/activity_laberinto_seleccionado">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="/home/ezelunawatkins/AndroidStudioProjects/AcaHayGatoEncerrado/app/src/main/res/drawable/Carcel.jpg"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/editText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Inventario"
+        android:id="@+id/buttonMostrarInventario"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carcel"
+        android:text="Carcel"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:layout_alignLeft="@+id/buttonMostrarInventario"
+        android:layout_alignStart="@+id/buttonMostrarInventario"
+        android:layout_alignRight="@+id/buttonMostrarInventario"
+        android:layout_alignEnd="@+id/buttonMostrarInventario" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_above="@+id/buttonMostrarInventario"
+        android:layout_centerHorizontal="true"
+        android:text="Por enamorarte de la hija del comisario terminaste tras las rejas. Pero sos una persona inteligente y estuviste preparando un excelente plan para escapar. Lástima que no tenés buena memoria y ahora no te acordás qué cosas tenés que usar para poder salir... Es que estar enamorado no te deja pensar bien." />
+
+</RelativeLayout>
