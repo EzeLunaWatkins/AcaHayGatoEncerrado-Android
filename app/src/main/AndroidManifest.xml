@@ -18,6 +18,10 @@
         <activity
             android:name=".LaberintoSeleccionadoActivity"
             android:label="@string/title_activity_laberinto_seleccionado"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LaberintosDisponibles"
+            android:label="@string/title_activity_laberintos_disponibles"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
