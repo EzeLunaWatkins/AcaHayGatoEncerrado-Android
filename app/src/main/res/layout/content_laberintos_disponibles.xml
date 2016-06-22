@@ -12,10 +12,11 @@
     tools:context="ui.unq.ezelunawatkins.acahaygatoencerrado.LaberintosDisponibles"
     tools:showIn="@layout/activity_laberintos_disponibles">
 
-    <ListView
+    <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/expandableListView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp" />
 </RelativeLayout>
