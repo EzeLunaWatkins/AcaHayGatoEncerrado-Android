@@ -26,7 +26,7 @@ public class MinLaberinto extends MinSeleccionable {
         return this.disponibilidad;
     }
 
-    public void inicializarPartida(Jugador jugador) {
+    public void inicializarPartida(MinJugador jugador) {
         this.disponibilidad = false;
     }
 
