@@ -1,7 +1,9 @@
-package ui.unq.ezelunawatkins.acahaygatoencerrado;
+package service;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
 public class InventarioActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package ui.unq.ezelunawatkins.acahaygatoencerrado;
+package service;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class LaberintoSeleccionadoActivity extends AppCompatActivity {
+import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
+
+public class LaberintosDisponiblesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_laberinto_seleccionado);
+        setContentView(R.layout.activity_laberintos_disponibles);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
