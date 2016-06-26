@@ -15,28 +15,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:id="@+id/titulo_laberintos_disponibles"
         android:textSize="30sp"
-        android:layout_marginTop="10dp"
-        android:text="Laberintos" />
+        android:text="@string/title_activity_laberintos_disponibles"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/laberintos_disponibles_list"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="77dp"
-        android:layout_above="@+id/button_actualizar_laberintos_disponibles" />
+        android:layout_above="@+id/button_actualizar_laberintos_disponibles"
+        android:layout_below="@+id/titulo_laberintos_disponibles" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar"
+        android:text="@string/button_actualizar"
         android:id="@+id/button_actualizar_laberintos_disponibles"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
