@@ -54,7 +54,7 @@ public class LaberintoSeleccionadoActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, LaberintosDisponiblesActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, LaberintosActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

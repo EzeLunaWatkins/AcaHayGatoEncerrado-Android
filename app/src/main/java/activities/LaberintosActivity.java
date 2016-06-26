@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
-public class LaberintosDisponiblesActivity extends AppCompatActivity {
+public class LaberintosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

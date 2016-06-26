@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="activities.LaberintosDisponiblesActivity"
+            android:name="activities.LaberintosActivity"
             android:label="@string/title_activity_laberintos_disponibles"
             android:theme="@style/AppTheme.NoActionBar">
         <intent-filter>
@@ -19,7 +19,7 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-    </activity>
+        </activity>
 
         <activity
             android:name="activities.LaberintoSeleccionadoActivity"

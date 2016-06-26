@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -50,12 +51,6 @@ public class LaberintosDisponiblesFragment extends Fragment{
 
     private void getLaberintosDisponiblesParaJugador() {
 
-        int idJugador = getActivity().getIntent().getExtras().getInt("id");
-        getLaberintosDisponiblesParaJugador(idJugador);
-    }
-
-    private void getLaberintosDisponiblesParaJugador(int id) {
-
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
         laberintosService.getLaberintos(new Callback<List<MinLaberinto>>() {
 
@@ -77,6 +72,27 @@ public class LaberintosDisponiblesFragment extends Fragment{
         ListView listView = (ListView) getActivity().findViewById(R.id.laberintos_disponibles_list);
         LaberintosDisponiblesAdapter adapter = new LaberintosDisponiblesAdapter(getActivity(), laberintos);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                triggerFragmentReplace(parent, position);
+            }
+        });
+    }
+
+    private void triggerFragmentReplace(AdapterView<?> parent, int position) {
+
+        LaberintoSeleccionadoFragment fragment = new LaberintoSeleccionadoFragment();
+
+        Bundle args = new Bundle();
+        MinLaberinto laberintoSeleccionado = (MinLaberinto) parent.getItemAtPosition(position);
+        args.putInt("id", laberintoSeleccionado.getId());
+        args.putString("nombre", laberintoSeleccionado.getNombre());
+        fragment.setArguments(args);
+
+        LaberintosActivity activity =
+                (LaberintosActivity) LaberintosDisponiblesFragment.this.getActivity();
+        activity.handleFragmentChange(fragment,"lista_laberintos_disponibles");
 
     }
 }

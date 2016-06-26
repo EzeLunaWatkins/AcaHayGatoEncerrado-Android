@@ -18,7 +18,7 @@ import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
 /**
  * A fragment representing a single Laberinto detail screen.
- * This fragment is either contained in a {@link LaberintosDisponiblesActivity}
+ * This fragment is either contained in a {@link LaberintosActivity}
  * in two-pane mode (on tablets) or a {@link LaberintoSeleccionadoActivity}
  * on handsets.
  */
