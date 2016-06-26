@@ -6,10 +6,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/cat"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="activities.LaberintosDisponiblesActivity"
+            android:label="@string/title_activity_laberintos_disponibles"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="activities.LaberintoSeleccionadoActivity"
+            android:label="@string/title_activity_laberinto_seleccionado"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="activities.InventarioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="activities.LaberintoSeleccionadoActivity"
-            android:label="@string/title_activity_laberinto_seleccionado"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="activities.LaberintosDisponiblesActivity"
-            android:label="@string/title_activity_laberintos_disponibles"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
