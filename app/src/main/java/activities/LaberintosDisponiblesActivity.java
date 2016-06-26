@@ -1,5 +1,6 @@
 package activities;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +18,7 @@ public class LaberintosDisponiblesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setTitle("Acá Hay Gato Encerrado...");
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -25,6 +26,28 @@ public class LaberintosDisponiblesActivity extends AppCompatActivity {
             LaberintosDisponiblesFragment fragment = new LaberintosDisponiblesFragment();
 
             fragmentTransaction.add(R.id.laberintos_disponibles_list, fragment, "lista_laberintos_disponibles");
+
+            fragmentTransaction.commit();
         }
+    }
+
+    public void handleFragmentChange(Fragment fragment, String name){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.laberintos_disponibles_list, fragment, name);
+
+        fragmentTransaction.addToBackStack(name);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        }
+        else super.onBackPressed();
     }
 }
