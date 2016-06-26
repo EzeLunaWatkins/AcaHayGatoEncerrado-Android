@@ -1,4 +1,4 @@
-package service;
+package activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,5 +27,4 @@ public class LaberintosDisponiblesActivity extends AppCompatActivity {
             }
         });
     }
-
 }
