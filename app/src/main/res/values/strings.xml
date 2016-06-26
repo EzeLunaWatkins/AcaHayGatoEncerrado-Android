@@ -5,4 +5,5 @@
     <string name="button_actualizar">Actualizar</string>
     <string name="title_activity_laberinto_seleccionado">Nombre del Laberinto Seleccionado</string>
     <string name="descripcion_activity_laberinto_seleccionado">Descripcion del Laberinto Seleccionado</string>
+    <string name="title_activity_inventario">Inventario</string>
 </resources>
