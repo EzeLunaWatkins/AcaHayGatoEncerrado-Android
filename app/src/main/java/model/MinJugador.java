@@ -8,12 +8,6 @@ public class MinJugador {
 
     private MinInventario inventario;
 
-    public void jugarLaberinto(MinLaberinto laberinto) {
-
-        this.inventario = new MinInventario();
-        laberinto.inicializarPartida(this);
-    }
-
     public void quitar(final Integer idItem) {
         this.inventario.quitar(idItem);
     }

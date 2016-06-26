@@ -1,11 +1,10 @@
 package activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
@@ -17,14 +16,16 @@ public class LaberintosDisponiblesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_laberintos_disponibles);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Acá Hay Gato Encerrado...");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if(savedInstanceState == null){
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            LaberintosDisponiblesFragment fragment = new LaberintosDisponiblesFragment();
+
+            fragmentTransaction.add(R.id.laberintos_disponibles_list, fragment, "lista_laberintos_disponibles");
+        }
     }
 }

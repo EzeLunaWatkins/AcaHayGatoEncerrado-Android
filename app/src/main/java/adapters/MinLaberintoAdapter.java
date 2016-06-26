@@ -1,4 +1,4 @@
-package activities;
+package adapters;
 
 import android.content.Context;
 import android.view.View;

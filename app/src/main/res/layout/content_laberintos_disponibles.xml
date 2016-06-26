@@ -12,11 +12,31 @@
     tools:context="activities.LaberintosDisponiblesActivity"
     tools:showIn="@layout/activity_laberintos_disponibles">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/titulo_laberintos_disponibles"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:text="Laberintos" />
+
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
+        android:id="@+id/laberintos_disponibles_list"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="77dp" />
+        android:layout_marginTop="77dp"
+        android:layout_above="@+id/button_actualizar_laberintos_disponibles" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar"
+        android:id="@+id/button_actualizar_laberintos_disponibles"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
 </RelativeLayout>

@@ -2,16 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="Imagen del laberinto"
+        android:id="@+id/row_laberinto_imagen"
+        android:padding="5dp"/>
+
     <TextView
-                android:id="@+id/txtTitulo"
+                android:id="@+id/row_laberinto_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/row_laberinto_imagen"
+                android:layout_toEndOf="@+id/row_laberinto_imagen"
+                android:textSize="20sp"
+                android:padding="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
-    <TextView
-                android:id="@+id/txtAutor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="?android:attr/textAppearanceSmall"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="Check si está en juego"
+        android:id="@+id/check_laberinto_en_juego"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
 </LinearLayout>
