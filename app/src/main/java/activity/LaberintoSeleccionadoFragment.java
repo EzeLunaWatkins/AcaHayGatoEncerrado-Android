@@ -34,6 +34,8 @@ public class LaberintoSeleccionadoFragment extends Fragment {
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
+
+
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
@@ -83,6 +85,8 @@ public class LaberintoSeleccionadoFragment extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
+
 
      /*   Button mostrarInventario = (Button) getActivity().findViewById(R.id.button_mostrar_inventario);
         mostrarInventario.setOnClickListener(new View.OnClickListener() {
