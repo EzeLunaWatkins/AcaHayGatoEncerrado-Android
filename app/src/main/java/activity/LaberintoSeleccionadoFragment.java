@@ -27,6 +27,9 @@ import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
  * in two-pane mode (on tablets).
  */
 public class LaberintoSeleccionadoFragment extends Fragment {
+
+    MinLaberinto laberinto;
+
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -46,11 +49,11 @@ public class LaberintoSeleccionadoFragment extends Fragment {
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             String itemID = getArguments().getString(ARG_ITEM_ID);
-            obtenerLaberinto(itemID);
+            laberinto = obtenerLaberinto(itemID);
         }
     }
 
-    private void obtenerLaberinto(String laberintoId) {
+    private MinLaberinto obtenerLaberinto(String laberintoId) {
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
         laberintosService.getLaberinto(laberintoId, new Callback<MinLaberinto>() {
             @Override
@@ -64,6 +67,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                 error.printStackTrace();
             }
         });
+        return laberinto;
     }
 
     private void mostrarLaberinto(MinLaberinto laberinto) {
