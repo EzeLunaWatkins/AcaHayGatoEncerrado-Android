@@ -4,39 +4,37 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import model.MinLaberinto;
-import service.ImageDownloader;
-import service.LaberintosServiceFactory;
-import service.ViewHolder;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
-public class LaberintosDisponiblesAdapter extends BaseAdapter {
-
-    private final ImageDownloader imageDownloader = new ImageDownloader();
-    private List<MinLaberinto> minLaberintoList;
-    private LayoutInflater layoutInflater;
+public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberinto> {
 
     public LaberintosDisponiblesAdapter(Context context, List<MinLaberinto> laberintos) {
-
-        this.minLaberintoList = laberintos;
-        this.layoutInflater = LayoutInflater.from(context);
-    }
-
-    @Override
-    public int getCount() {
-        return minLaberintoList.size();
+        super(context,laberintos);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder holder;
+        MinLaberinto laberinto = (MinLaberinto) getItem(position);
+        View row = generateRow(R.layout.laberinto_row, parent);
+
+        setColumnTextView(row, R.id.row_laberinto_nombre, laberinto.getNombre());
+
+        if(laberinto.estaEnJuego()) {
+            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.en_juego);
+        } else {
+            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.disponible);
+        }
+
+        return row;
+
+/*        ViewHolder holder;
 
         if(convertView == null) {
             convertView = layoutInflater.inflate(R.layout.laberinto_row,parent, false);
@@ -49,7 +47,7 @@ public class LaberintosDisponiblesAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        MinLaberinto laberinto = minLaberintoList.get(position);
+        MinLaberinto laberinto = objects.get(position);
         String imagePath = LaberintosServiceFactory.API_URL +
                 "/img/" + laberinto.getNombre() + ".jpg";
 
@@ -63,15 +61,5 @@ public class LaberintosDisponiblesAdapter extends BaseAdapter {
         imageDownloader.download(imagePath, holder.imagen);
 
         return convertView;
-    }
-
-    @Override
-    public long getItemId (int position) {
-        return position;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return minLaberintoList.get(position);
-    }
+*/    }
 }

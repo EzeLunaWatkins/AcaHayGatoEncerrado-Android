@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -47,5 +48,10 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter {
     public void setColumnTextView(View row, int widgetId, String value) {
         TextView widget = (TextView) row.findViewById(widgetId);
         widget.setText(value);
+    }
+
+    public void setColumnImageView(View row, int widgetId, int value) {
+        ImageView widget = (ImageView) row.findViewById(widgetId);
+        widget.setImageResource(value);
     }
 }
