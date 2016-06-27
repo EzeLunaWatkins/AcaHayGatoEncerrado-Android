@@ -96,17 +96,17 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
         final InventarioFragment fragment = new InventarioFragment();
 
-        fragment.setInventario(laberintosService.getInventario(new Callback<List<MinItem>>() {
+        laberintosService.getInventario(new Callback<List<MinItem>>() {
             @Override
             public void success(List<MinItem> minItems, Response response){
                 LaberintosActivity activity = (LaberintosActivity) fragment.getActivity();
-                activity.handleFragmentChange(fragment, "lista_laberintos_disponibles");
+                activity.handleFragmentChange(fragment, "laberintos_fragment_container");
             }
             @Override
             public void failure(RetrofitError error) {
                 Log.e("", error.getMessage());
                 error.printStackTrace();
             }
-        }));
+        });
     }
 }

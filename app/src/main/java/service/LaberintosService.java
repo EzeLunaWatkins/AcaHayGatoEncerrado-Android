@@ -14,7 +14,7 @@ public interface LaberintosService {
     Callback<List<MinLaberinto>> getLaberintos(Callback<List<MinLaberinto>> callback);
 
     @GET("/laberintos/{LaberintoId}")
-    MinLaberinto getLaberinto(@retrofit.http.Path("LaberintoId") String id, Callback<MinLaberinto> callback);
+    Callback<MinLaberinto> getLaberinto(@retrofit.http.Path("LaberintoId") String id, Callback<MinLaberinto> callback);
 
     @GET("/inventario")
     Callback<List<MinItem>> getInventario(Callback<List<MinItem>> callback);
