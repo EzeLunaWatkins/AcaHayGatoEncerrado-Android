@@ -28,8 +28,6 @@ import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
  */
 public class LaberintoSeleccionadoFragment extends Fragment {
 
-    MinLaberinto laberinto;
-
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -51,11 +49,11 @@ public class LaberintoSeleccionadoFragment extends Fragment {
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             String itemID = getArguments().getString(ARG_ITEM_ID);
-            laberinto = obtenerLaberinto(itemID);
+            obtenerLaberinto(itemID);
         }
     }
 
-    private MinLaberinto obtenerLaberinto(String laberintoId) {
+    private void obtenerLaberinto(String laberintoId) {
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
         laberintosService.getLaberinto(laberintoId, new Callback<MinLaberinto>() {
             @Override
@@ -69,7 +67,6 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                 error.printStackTrace();
             }
         });
-        return laberinto;
     }
 
     private void mostrarLaberinto(MinLaberinto laberinto) {
@@ -80,7 +77,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_laberintos, container, false);
+        return inflater.inflate(R.layout.laberinto_detalle, container, false);
     }
 
     @Override
