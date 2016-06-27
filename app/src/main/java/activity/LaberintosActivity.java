@@ -23,7 +23,7 @@ public class LaberintosActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             LaberintosDisponiblesFragment fragment = new LaberintosDisponiblesFragment();
-            fragmentTransaction.add(R.id.laberinto_fragment_container, fragment, "laberintos_disponibles_list");
+            fragmentTransaction.add(R.id.laberintos_fragment_container, fragment, "laberintos_disponibles_list");
             fragmentTransaction.commit();
         }
     }
@@ -32,7 +32,7 @@ public class LaberintosActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.laberinto_fragment_container, fragment, name);
+        fragmentTransaction.replace(R.id.laberintos_fragment_container, fragment, name);
         fragmentTransaction.addToBackStack(name);
         fragmentTransaction.commit();
     }
