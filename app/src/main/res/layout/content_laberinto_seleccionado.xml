@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/laberinto_detail_container"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="activity.LaberintosActivity">
+    tools:context="activity.LaberintosActivity"
+    tools:showIn="@id/laberintos_fragment_container">
 
     <EditText
         android:layout_width="wrap_content"

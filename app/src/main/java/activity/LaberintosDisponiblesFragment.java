@@ -88,6 +88,7 @@ public class LaberintosDisponiblesFragment extends Fragment{
         MinLaberinto laberintoSeleccionado = (MinLaberinto) parent.getItemAtPosition(position);
         args.putInt("id", laberintoSeleccionado.getId());
         args.putString("nombre", laberintoSeleccionado.getNombre());
+        args.putString("descripcion", laberintoSeleccionado.getDescripcion());
         fragment.setArguments(args);
 
         LaberintosActivity activity =
