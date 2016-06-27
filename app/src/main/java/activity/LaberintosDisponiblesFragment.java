@@ -70,8 +70,8 @@ public class LaberintosDisponiblesFragment extends Fragment{
     private void convertToList(List<MinLaberinto> laberintos) {
 
         ListView listView = (ListView) getActivity().findViewById(R.id.laberintos_disponibles_list);
-        LaberintosDisponiblesAdapter adapter = new LaberintosDisponiblesAdapter(getActivity(), laberintos);
-        listView.setAdapter(adapter);
+      //  LaberintosDisponiblesAdapter adapter = new LaberintosDisponiblesAdapter(getActivity(), laberintos);
+       // listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
