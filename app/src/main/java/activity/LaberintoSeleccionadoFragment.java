@@ -1,4 +1,4 @@
-package activities;
+package activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,21 +6,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
+import model.MinInventario;
+import model.MinItem;
 import model.MinLaberinto;
 import service.LaberintosService;
 import retrofit.Callback;
-import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import service.LaberintosServiceFactory;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
 /**
  * A fragment representing a single Laberinto detail screen.
  * This fragment is either contained in a {@link LaberintosActivity}
- * in two-pane mode (on tablets) or a {@link LaberintoSeleccionadoActivity}
- * on handsets.
+ * in two-pane mode (on tablets).
  */
 public class LaberintoSeleccionadoFragment extends Fragment {
     /**
@@ -47,7 +51,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
     }
 
     private void obtenerLaberinto(String laberintoId) {
-        LaberintosService laberintosService = createLaberintosService();
+        LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
         laberintosService.getLaberinto(laberintoId, new Callback<MinLaberinto>() {
             @Override
             public void success(MinLaberinto laberinto, Response response) {
@@ -67,21 +71,42 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         ((TextView) this.getView().findViewById(R.id.laberinto_descripcion)).setText(laberinto.getDescripcion());
     }
 
-    private LaberintosService createLaberintosService() {
-        //MMM código repetido, habría que modificar esto no?
-        String SERVER_IP = "10.0.2.2"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
-        String SERVER_IP_GENY = "0.0.0.0";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
-        String API_URL = "http://"+ SERVER_IP_GENY +":9777";
-
-        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build();
-        LaberintosService laberintosService = restAdapter.create(LaberintosService.class);
-        return laberintosService;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_laberinto_seleccionado, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.activity_laberintos, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        Button mostrarInventario = (Button) getActivity().findViewById(R.id.button_mostrar_inventario);
+        mostrarInventario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verInventario();
+            }
+        });
+
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    private void verInventario() {
+
+        LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
+        final InventarioFragment fragment = new InventarioFragment();
+
+        fragment.setInventario(laberintosService.getInventario(new Callback<List<MinItem>>() {
+            @Override
+            public void success(List<MinItem> minItems, Response response){
+                LaberintosActivity activity = (LaberintosActivity) fragment.getActivity();
+                activity.handleFragmentChange(fragment, "lista_laberintos_disponibles");
+            }
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("", error.getMessage());
+                error.printStackTrace();
+            }
+        }));
     }
 }

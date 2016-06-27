@@ -11,14 +11,14 @@ import retrofit.http.GET;
 public interface LaberintosService {
 
     @GET("/laberintos")
-    void getLaberintos(Callback<List<MinLaberinto>> callback);
+    List<MinLaberinto> getLaberintos(Callback<List<MinLaberinto>> callback);
 
     @GET("/laberintos/{LaberintoId}")
-    void getLaberinto(@retrofit.http.Path("LaberintoId") String id, Callback<MinLaberinto> callback);
+    MinLaberinto getLaberinto(@retrofit.http.Path("LaberintoId") String id, Callback<MinLaberinto> callback);
 
     @GET("/inventario")
-    void getInventario(Callback<List<MinInventario>> callback);
+    List<MinItem> getInventario(Callback<List<MinItem>> callback);
 
     @GET("/tirar/{ItemId}")
-    void tirarItem(@retrofit.http.Path("ItemId") String id, Callback<MinItem> callback);
+    void tirarItem(@retrofit.http.Path("ItemId") int id, Callback<MinItem> callback);
 }

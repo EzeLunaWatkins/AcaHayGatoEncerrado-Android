@@ -1,4 +1,4 @@
-package activities;
+package activity;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -93,6 +93,5 @@ public class LaberintosDisponiblesFragment extends Fragment{
         LaberintosActivity activity =
                 (LaberintosActivity) LaberintosDisponiblesFragment.this.getActivity();
         activity.handleFragmentChange(fragment,"lista_laberintos_disponibles");
-
     }
 }

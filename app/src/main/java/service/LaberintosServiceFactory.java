@@ -10,7 +10,6 @@ public class LaberintosServiceFactory {
     static public LaberintosService createLaberintosService(){
 
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build();
-        LaberintosService laberintosService = restAdapter.create(LaberintosService.class);
-        return laberintosService;
+        return restAdapter.create(LaberintosService.class);
     }
 }

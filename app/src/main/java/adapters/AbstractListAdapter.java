@@ -17,9 +17,6 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter {
     private Context context;
     private List<T> objects;
 
-    public AbstractListAdapter() {
-    }
-
     public AbstractListAdapter(Context pContext, List<T> severalObjects) {
         context = pContext;
         objects = severalObjects;

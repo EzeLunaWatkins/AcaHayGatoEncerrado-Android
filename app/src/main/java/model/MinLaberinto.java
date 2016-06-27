@@ -3,23 +3,8 @@ package model;
 public class MinLaberinto extends MinSeleccionable {
 
     private String descripcion;
-    private Boolean disponibilidad;
-    private Boolean enJuego;
-
-    public MinLaberinto() {
-
-        this.disponibilidad = false;
-        this.enJuego = false;
-    }
-
-    public MinLaberinto(String nombre) {
-
-            if (this.esUnLaberintoValido(nombre)) {
-                this.setNombre(nombre);
-                this.disponibilidad = false;
-                this.enJuego = false;
-            }
-    }
+    private Boolean disponibilidad = false;
+    private Boolean enJuego = false;
 
     public boolean esUnLaberintoValido(String nombreLaberinto) {
         return !nombreLaberinto.isEmpty();

@@ -11,24 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="activities.LaberintosActivity"
+            android:name="activity.LaberintosActivity"
             android:label="@string/title_activity_laberintos_disponibles"
             android:theme="@style/AppTheme.NoActionBar">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-
-        <activity
-            android:name="activities.LaberintoSeleccionadoActivity"
-            android:label="@string/title_activity_laberinto_seleccionado"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="activities.InventarioActivity"
-            android:label="@string/title_activity_inventario"
-            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
-
 </manifest>

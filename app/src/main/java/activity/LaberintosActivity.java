@@ -1,4 +1,4 @@
-package activities;
+package activity;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ public class LaberintosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_laberintos_disponibles);
+        setContentView(R.layout.activity_laberintos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Acá Hay Gato Encerrado...");
@@ -25,7 +25,7 @@ public class LaberintosActivity extends AppCompatActivity {
 
             LaberintosDisponiblesFragment fragment = new LaberintosDisponiblesFragment();
 
-            fragmentTransaction.add(R.id.laberintos_disponibles_list, fragment, "lista_laberintos_disponibles");
+            fragmentTransaction.add(R.id.laberintos_disponibles_list, fragment, "laberintos_disponibles_list");
 
             fragmentTransaction.commit();
         }

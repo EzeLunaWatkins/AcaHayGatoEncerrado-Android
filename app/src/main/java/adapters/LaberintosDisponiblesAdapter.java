@@ -24,39 +24,11 @@ public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberin
         setColumnTextView(row, R.id.row_laberinto_nombre, laberinto.getNombre());
 
         if(laberinto.estaEnJuego()) {
-            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.en_juego);
+            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.activo);
         } else {
-            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.disponible);
+            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.inactivo);
         }
 
         return row;
-
-/*        ViewHolder holder;
-
-        if(convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.laberinto_row,parent, false);
-            holder = new ViewHolder();
-            holder.nombre = (TextView) convertView.findViewById(R.id.row_laberinto_nombre);
-            holder.imagen = (ImageView) convertView.findViewById(R.id.row_laberinto_imagen);
-            holder.check = (ImageView) convertView.findViewById(R.id.check_laberinto_en_juego);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        MinLaberinto laberinto = objects.get(position);
-        String imagePath = LaberintosServiceFactory.API_URL +
-                "/img/" + laberinto.getNombre() + ".jpg";
-
-        holder.nombre.setText(laberinto.getNombre());
-        if(laberinto.estaEnJuego()) {
-            holder.check.setImageResource(R.drawable.en_juego);
-        } else {
-            holder.check.setImageResource(R.drawable.disponible);
-        }
-
-        imageDownloader.download(imagePath, holder.imagen);
-
-        return convertView;
-*/    }
+    }
 }

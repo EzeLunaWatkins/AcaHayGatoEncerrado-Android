@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="activities.LaberintosActivity"
-    tools:showIn="@layout/activity_laberintos_disponibles">
+    tools:context="activity.LaberintosActivity"
+    tools:showIn="@layout/activity_laberintos">
 
     <TextView
         android:layout_width="wrap_content"
