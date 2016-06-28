@@ -79,23 +79,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.laberinto_detalle, container, false);
     }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-
-
-
-     /*   Button mostrarInventario = (Button) getActivity().findViewById(R.id.button_mostrar_inventario);
-        mostrarInventario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verInventario();
-            }
-        });*/
-
-        super.onActivityCreated(savedInstanceState);
-    }
-
+    
     private void verInventario() {
 
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
