@@ -77,6 +77,9 @@ public class LaberintoSeleccionadoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        obtenerLaberinto(getArguments().getString(ARG_ITEM_ID));
+
         return inflater.inflate(R.layout.laberinto_detalle, container, false);
     }
     
