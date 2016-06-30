@@ -100,7 +100,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
 
         new ImagenLaberinto((ImageView) getActivity().findViewById(R.id.laberinto_imagen))
                 .execute(LaberintosServiceFactory.API_URL+"/img/"
-                        + getActivity().findViewById(R.id.laberinto_nombre) + ".jpg");
+                        + nombreLaberinto.toString() + ".jpg");
 
         super.onActivityCreated(savedInstanceState);
     }
