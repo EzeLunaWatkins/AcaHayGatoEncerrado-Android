@@ -23,7 +23,6 @@ public class InventarioAdapter extends AbstractListAdapter<MinItem> {
 
         setColumnTextView(row, R.id.row_item_nombre, item.getNombre());
 
-
         return row;
     }
 }

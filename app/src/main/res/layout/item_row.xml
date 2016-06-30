@@ -12,10 +12,4 @@
         android:padding="5dp"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/check_item_seleccionado"
-        android:padding="5dp" />
-
 </LinearLayout>
