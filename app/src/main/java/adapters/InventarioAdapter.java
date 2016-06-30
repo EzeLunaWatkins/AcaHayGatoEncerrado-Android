@@ -23,12 +23,6 @@ public class InventarioAdapter extends AbstractListAdapter<MinItem> {
 
         setColumnTextView(row, R.id.row_item_nombre, item.getNombre());
 
-        if(item.getId()==R.id.item_seleccionado_id) {
-            setColumnStatus(row, R.id.check_item_seleccionado, R.drawable.activo);
-        } else {
-            setColumnStatus(row, R.id.check_item_seleccionado, R.drawable.inactivo);
-        }
-
         return row;
     }
 }
