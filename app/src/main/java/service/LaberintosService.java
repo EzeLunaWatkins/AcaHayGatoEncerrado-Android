@@ -13,8 +13,8 @@ public interface LaberintosService {
     @GET("/laberintos")
     void getLaberintos(Callback<List<MinLaberinto>> callback);
 
-    @GET("/laberintos/{LaberintoId}")
-    void getLaberinto(@retrofit.http.Path("LaberintoId") String id, Callback<MinLaberinto> callback);
+    @GET("/laberintos/{laberintoId}")
+    void getLaberinto(@retrofit.http.Path("laberintoId") String laberintoId, Callback<MinLaberinto> callback);
 
     @GET("/inventario")
     void getInventario(Callback<List<MinItem>> callback);
