@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import model.MinInventario;
@@ -81,6 +83,18 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         obtenerLaberinto(getArguments().getString(ARG_ITEM_ID));
 
         return inflater.inflate(R.layout.laberinto_detalle, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        TextView nombreLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_nombre);
+        nombreLaberinto.setText(getArguments().getString("nombre"));
+
+        TextView descripcionLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_descripcion);
+        descripcionLaberinto.setText(getArguments().getString("descripcion"));
+
+        super.onActivityCreated(savedInstanceState);
     }
     
     private void verInventario() {
