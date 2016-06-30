@@ -98,17 +98,10 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         TextView descripcionLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_descripcion);
         descripcionLaberinto.setText(getArguments().getString("descripcion"));
 
-        File imgFile = new File("/img/" + getArguments().getString("nombre") + ".jpg");
+        new ImagenLaberinto((ImageView) getActivity().findViewById(R.id.laberinto_imagen))
+                .execute(LaberintosServiceFactory.API_URL+"/img/"
+                        + getActivity().findViewById(R.id.laberinto_nombre) + ".jpg");
 
-        if(imgFile.exists()){
-
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
-            ImageView myImage = (ImageView) getActivity().findViewById(R.id.laberinto_imagen);
-
-            myImage.setImageBitmap(myBitmap);
-
-        }
         super.onActivityCreated(savedInstanceState);
     }
 
