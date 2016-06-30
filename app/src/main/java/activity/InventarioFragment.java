@@ -42,53 +42,20 @@ public class InventarioFragment extends Fragment{
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
-        Button deleteItem = (Button) getActivity().findViewById(R.id.button_tirar_item);
-        deleteItem.setOnClickListener(new View.OnClickListener() {
+        Button actualizar = (Button) getActivity().findViewById(R.id.button_actualizar_items);
+        actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tirarItem();
+                updateList();
             }
         });
         super.onActivityCreated(savedInstanceState);
     }
 
-    private void tirarItem() {
-
-        LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
-        laberintosService.tirarItem(R.id.item_seleccionado_id, new Callback<MinItem>() {
-            @Override
-            public void success(MinItem item, Response response) {
-                updateList();
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.e("", error.getMessage());
-                error.printStackTrace();
-            }
-        });
-    }
-
     private void updateList() {
 
-        ListView listView = (ListView) getActivity().findViewById(R.id.inventario_items_list);
+        ListView listView = (ListView) getActivity().findViewById(R.id.inventario_list);
         InventarioAdapter adapter = new InventarioAdapter(getActivity(), inventario);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(parent, position);
-            }
-        });
-    }
-
-    private void selectItem(AdapterView<?> parent, int position){
-
-        Bundle args = new Bundle();
-
-        MinItem itemSeleccionado = (MinItem) parent.getItemAtPosition(position);
-        args.putInt("id", itemSeleccionado.getId());
-        args.putString("nombre", itemSeleccionado.getNombre());
-        this.setArguments(args);
     }
 }
