@@ -102,7 +102,13 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                 .execute(LaberintosServiceFactory.API_URL+"/img/"
                         + nombreLaberinto.getText() + ".jpg");
 
-
+        Button inventario = (Button) getActivity().findViewById(R.id.button_mostrar_inventario);
+        inventario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verInventario();
+            }
+        });
 
         super.onActivityCreated(savedInstanceState);
     }
