@@ -142,6 +142,6 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         fragment.setInventario(inventario);
 
         LaberintosActivity activity = (LaberintosActivity) getActivity();
-        activity.handleFragmentChange(fragment,"laberintos_fragment_container");
+        activity.handleFragmentChange(fragment,"inventario_list");
     }
 }
