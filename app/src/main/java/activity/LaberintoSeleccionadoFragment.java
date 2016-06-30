@@ -36,7 +36,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
      */
 
 
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ARG_ITEM_ID = "id";
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
