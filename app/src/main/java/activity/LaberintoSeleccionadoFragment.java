@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -17,8 +19,11 @@ import org.w3c.dom.Text;
 import java.io.File;
 import java.util.List;
 
+import adapters.InventarioAdapter;
+import adapters.LaberintosDisponiblesAdapter;
 import model.MinInventario;
 import model.MinItem;
+import model.MinJugador;
 import model.MinLaberinto;
 import service.LaberintosService;
 import retrofit.Callback;
@@ -106,29 +111,37 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         inventario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verInventario();
+                getInventario();
             }
         });
 
         super.onActivityCreated(savedInstanceState);
     }
 
-    private void verInventario() {
+    private void getInventario() {
 
         LaberintosService laberintosService = LaberintosServiceFactory.createLaberintosService();
-        final InventarioFragment fragment = new InventarioFragment();
-
         laberintosService.getInventario(new Callback<List<MinItem>>() {
+
             @Override
-            public void success(List<MinItem> minItems, Response response){
-                LaberintosActivity activity = (LaberintosActivity) fragment.getActivity();
-                activity.handleFragmentChange(fragment, "laberintos_fragment_container");
+            public void success(List<MinItem> inventario, Response response) {
+                triggerFragmentReplace(inventario);
             }
+
             @Override
             public void failure(RetrofitError error) {
                 Log.e("", error.getMessage());
                 error.printStackTrace();
             }
         });
+    }
+
+    private void triggerFragmentReplace(List<MinItem> inventario) {
+
+        InventarioFragment fragment = new InventarioFragment();
+        fragment.setInventario(inventario);
+
+        LaberintosActivity activity = (LaberintosActivity) getActivity();
+        activity.handleFragmentChange(fragment,"laberintos_fragment_container");
     }
 }
