@@ -3,10 +3,13 @@ package adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.List;
 
+import activity.ImagenLaberinto;
 import model.MinLaberinto;
+import service.LaberintosServiceFactory;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
 public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberinto> {
@@ -24,9 +27,9 @@ public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberin
         setColumnTextView(row, R.id.row_laberinto_nombre, laberinto.getNombre());
 
         if(laberinto.estaEnJuego()) {
-            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.activo);
+            setColumnStatus(row, R.id.check_laberinto_en_juego, R.drawable.activo);
         } else {
-            setColumnImageView(row, R.id.check_laberinto_en_juego, R.drawable.inactivo);
+            setColumnStatus(row, R.id.check_laberinto_en_juego, R.drawable.inactivo);
         }
 
         return row;

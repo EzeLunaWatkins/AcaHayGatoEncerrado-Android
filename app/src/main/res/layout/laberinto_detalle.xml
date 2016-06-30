@@ -32,4 +32,11 @@
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"/>
 
+    <Button
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button_mostrar_inventario"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

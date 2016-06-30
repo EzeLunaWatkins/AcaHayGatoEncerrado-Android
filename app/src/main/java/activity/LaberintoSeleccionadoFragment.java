@@ -102,6 +102,8 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                 .execute(LaberintosServiceFactory.API_URL+"/img/"
                         + nombreLaberinto.getText() + ".jpg");
 
+
+
         super.onActivityCreated(savedInstanceState);
     }
 

@@ -47,7 +47,7 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter {
         widget.setText(value);
     }
 
-    public void setColumnImageView(View row, int widgetId, int value) {
+    public void setColumnStatus(View row, int widgetId, int value) {
         ImageView widget = (ImageView) row.findViewById(widgetId);
         widget.setImageResource(value);
     }
