@@ -89,15 +89,15 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         inventario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getArguments().getBoolean("enJuego")) {
+//                if (getArguments().getBoolean("enJuego")) {
                     getInventario();
-                } else {
+/*                } else {
                     new ErrorDialogFragment().setMessage
                             ("Este laberinto no está siendo jugado, por lo cual," +
                             "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
                             getArguments().getString("nombre") + "' para poder ver su inventario.");
                 }
-            }
+*/            }
         });
 
         super.onActivityCreated(savedInstanceState);
