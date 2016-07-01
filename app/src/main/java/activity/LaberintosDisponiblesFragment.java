@@ -91,8 +91,8 @@ public class LaberintosDisponiblesFragment extends Fragment{
         args.putString("descripcion", laberintoSeleccionado.getDescripcion());
         fragment.setArguments(args);
 
-        LaberintosActivity activity =
-                (LaberintosActivity) LaberintosDisponiblesFragment.this.getActivity();
+        MainActivity activity =
+                (MainActivity) LaberintosDisponiblesFragment.this.getActivity();
         activity.handleFragmentChange(fragment,"lista_laberintos_disponibles");
     }
 }

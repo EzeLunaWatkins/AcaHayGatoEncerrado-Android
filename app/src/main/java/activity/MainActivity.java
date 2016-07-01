@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
-public class LaberintosActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ErrorDialogFragment.OnErrorDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class LaberintosActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             LaberintosDisponiblesFragment fragment = new LaberintosDisponiblesFragment();
-            fragmentTransaction.add(R.id.laberintos_fragment_container, fragment, "laberintos_disponibles_list");
+            fragmentTransaction.add(R.id.main_fragment_container, fragment, "laberintos_disponibles_list");
             fragmentTransaction.commit();
         }
     }
@@ -32,7 +32,7 @@ public class LaberintosActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.laberintos_fragment_container, fragment, name);
+        fragmentTransaction.replace(R.id.main_fragment_container, fragment, name);
         fragmentTransaction.addToBackStack(name);
         fragmentTransaction.commit();
     }
@@ -44,5 +44,10 @@ public class LaberintosActivity extends AppCompatActivity {
             getSupportFragmentManager().popBackStack();
         }
         else super.onBackPressed();
+    }
+
+    @Override
+    public void onNeutralButtonClick() {
+        //cerrar diálogo
     }
 }

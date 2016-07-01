@@ -1,5 +1,8 @@
 package activity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.List;
 
 import model.MinItem;
@@ -21,25 +25,10 @@ import service.LaberintosService;
 import service.LaberintosServiceFactory;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
-/**
- * A fragment representing a single Laberinto detail screen.
- * This fragment is either contained in a {@link LaberintosActivity}
- * in two-pane mode (on tablets).
- */
 public class LaberintoSeleccionadoFragment extends Fragment {
-
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-
 
     public static final String ARG_ITEM_ID = "id";
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public LaberintoSeleccionadoFragment() {
     }
 
@@ -86,21 +75,28 @@ public class LaberintoSeleccionadoFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
-        TextView nombreLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_nombre);
+        final TextView nombreLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_nombre);
         nombreLaberinto.setText(getArguments().getString("nombre"));
 
         TextView descripcionLaberinto = (TextView) getActivity().findViewById(R.id.laberinto_descripcion);
         descripcionLaberinto.setText(getArguments().getString("descripcion"));
 
-        new ImagenLaberinto((ImageView) getActivity().findViewById(R.id.laberinto_imagen))
-                .execute(LaberintosServiceFactory.API_URL+"/img/"
+        new ImagenLaberintoSeleccionado((ImageView) getActivity().findViewById(R.id.laberinto_imagen))
+                .execute(LaberintosServiceFactory.API_URL + "/img/"
                         + nombreLaberinto.getText() + ".jpg");
 
         Button inventario = (Button) getActivity().findViewById(R.id.button_mostrar_inventario);
         inventario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getInventario();
+                if (getArguments().getBoolean("enJuego")) {
+                    getInventario();
+                } else {
+                    new ErrorDialogFragment().setMessage
+                            ("Este laberinto no está siendo jugado, por lo cual," +
+                            "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
+                            getArguments().getString("nombre") + "' para poder ver su inventario.");
+                }
             }
         });
 
@@ -130,7 +126,33 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         InventarioFragment fragment = new InventarioFragment();
         fragment.setInventario(inventario);
 
-        LaberintosActivity activity = (LaberintosActivity) getActivity();
-        activity.handleFragmentChange(fragment,"inventario_list");
+        MainActivity activity = (MainActivity) getActivity();
+        activity.handleFragmentChange(fragment, "inventario_list");
+    }
+}
+
+class ImagenLaberintoSeleccionado extends AsyncTask<String, Void, Bitmap> {
+
+    ImageView bmImage;
+
+    public ImagenLaberintoSeleccionado(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mIcon11 = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        return mIcon11;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
     }
 }

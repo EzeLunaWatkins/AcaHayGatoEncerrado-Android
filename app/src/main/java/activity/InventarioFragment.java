@@ -42,6 +42,8 @@ public class InventarioFragment extends Fragment{
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
+        updateList();
+
         Button actualizar = (Button) getActivity().findViewById(R.id.button_actualizar_items);
         actualizar.setOnClickListener(new View.OnClickListener() {
             @Override

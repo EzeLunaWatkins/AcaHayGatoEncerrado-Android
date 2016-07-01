@@ -7,8 +7,8 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/row_laberinto_imagen"
-        android:padding="5dp"/>
+        android:id="@+id/check_laberinto_en_juego"
+        android:padding="5dp" />
 
     <TextView
                 android:id="@+id/row_laberinto_nombre"
@@ -17,11 +17,5 @@
                 android:textSize="20sp"
                 android:padding="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/check_laberinto_en_juego"
-        android:padding="5dp" />
 
 </LinearLayout>

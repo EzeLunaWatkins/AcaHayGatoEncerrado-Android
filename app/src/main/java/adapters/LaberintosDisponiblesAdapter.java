@@ -3,13 +3,10 @@ package adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.List;
 
-import activity.ImagenLaberinto;
 import model.MinLaberinto;
-import service.LaberintosServiceFactory;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
 public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberinto> {
