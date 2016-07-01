@@ -2,7 +2,6 @@ package service;
 
 import java.util.List;
 
-import model.MinInventario;
 import model.MinItem;
 import model.MinLaberinto;
 import retrofit.Callback;

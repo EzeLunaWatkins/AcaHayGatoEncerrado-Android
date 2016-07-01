@@ -1,34 +1,23 @@
 package activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.File;
 import java.util.List;
 
-import adapters.InventarioAdapter;
-import adapters.LaberintosDisponiblesAdapter;
-import model.MinInventario;
 import model.MinItem;
-import model.MinJugador;
 import model.MinLaberinto;
-import service.LaberintosService;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import service.LaberintosService;
 import service.LaberintosServiceFactory;
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 

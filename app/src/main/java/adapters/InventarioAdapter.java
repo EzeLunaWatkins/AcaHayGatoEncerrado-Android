@@ -12,6 +12,7 @@ import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 public class InventarioAdapter extends AbstractListAdapter<MinItem> {
 
     public InventarioAdapter(Context context, List<MinItem> items) {
+
         super(context,items);
     }
 
