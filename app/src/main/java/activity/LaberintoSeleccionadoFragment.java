@@ -90,9 +90,9 @@ public class LaberintoSeleccionadoFragment extends Fragment {
         inventario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getArguments().getBoolean("enJuego")) {
+//                if (getArguments().getBoolean("enJuego")) {
                     getInventario();
-                } else {
+/*                } else {
                     Toast toast1 = Toast.makeText(getActivity().getApplicationContext(),
                                     "Este laberinto no está siendo jugado, por lo cual," +
                                     "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
@@ -100,7 +100,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                                     Toast.LENGTH_LONG);
                     toast1.show();
                 }
-            }
+*/            }
         });
 
         super.onActivityCreated(savedInstanceState);
