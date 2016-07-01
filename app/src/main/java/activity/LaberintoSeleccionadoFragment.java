@@ -97,7 +97,7 @@ public class LaberintoSeleccionadoFragment extends Fragment {
                                     "Este laberinto no está siendo jugado, por lo cual," +
                                     "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
                                     getArguments().getString("nombre") + "' para poder ver su inventario.",
-                                    Toast.LENGTH_SHORT);
+                                    Toast.LENGTH_LONG);
                     toast1.show();
                 }
             }
