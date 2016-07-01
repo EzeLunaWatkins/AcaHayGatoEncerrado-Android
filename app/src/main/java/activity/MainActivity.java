@@ -6,9 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
+
 import ui.unq.ezelunawatkins.acahaygatoencerrado.R;
 
-public class MainActivity extends AppCompatActivity implements ErrorDialogFragment.OnErrorDialogListener {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,5 @@ public class MainActivity extends AppCompatActivity implements ErrorDialogFragme
             getSupportFragmentManager().popBackStack();
         }
         else super.onBackPressed();
-    }
-
-    @Override
-    public void onNeutralButtonClick() {
-        //cerrar diálogo
     }
 }

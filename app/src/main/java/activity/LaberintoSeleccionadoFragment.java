@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.util.List;
@@ -91,13 +92,15 @@ public class LaberintoSeleccionadoFragment extends Fragment {
             public void onClick(View v) {
                 if (getArguments().getBoolean("enJuego")) {
                     getInventario();
-                }/* else {
-                    new ErrorDialogFragment().setMessage
-                            ("Este laberinto no está siendo jugado, por lo cual," +
-                            "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
-                            getArguments().getString("nombre") + "' para poder ver su inventario.");
+                } else {
+                    Toast toast1 = Toast.makeText(getActivity().getApplicationContext(),
+                                    "Este laberinto no está siendo jugado, por lo cual," +
+                                    "no tiene asociado ningún inventario a mostrar. Juegue al laberinto '" +
+                                    getArguments().getString("nombre") + "' para poder ver su inventario.",
+                                    Toast.LENGTH_SHORT);
+                    toast1.show();
                 }
-*/            }
+            }
         });
 
         super.onActivityCreated(savedInstanceState);
