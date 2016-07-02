@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import adapters.LaberintosDisponiblesAdapter;
@@ -56,7 +57,7 @@ public class LaberintosDisponiblesFragment extends Fragment{
 
            @Override
            public void success(List<MinLaberinto> laberintosDisponibles, Response response) {
-               convertToList(laberintosDisponibles);
+               convertToList(filtrarLaberintos(laberintosDisponibles));
            }
 
            @Override
@@ -65,6 +66,16 @@ public class LaberintosDisponiblesFragment extends Fragment{
                error.printStackTrace();
            }
         });
+    }
+
+    private List<MinLaberinto> filtrarLaberintos(List<MinLaberinto> laberintos) {
+        List<MinLaberinto> result = new ArrayList<MinLaberinto>();
+        for (MinLaberinto laberinto : laberintos) {
+            if (laberinto.estaDisponibleOEnJuego()) {
+                result.add(laberinto);
+            }
+        }
+    return result;
     }
 
     private void convertToList(List<MinLaberinto> laberintos) {
@@ -89,6 +100,7 @@ public class LaberintosDisponiblesFragment extends Fragment{
         args.putInt("id", laberintoSeleccionado.getId());
         args.putString("nombre", laberintoSeleccionado.getNombre());
         args.putString("descripcion", laberintoSeleccionado.getDescripcion());
+        args.putBoolean("enJuego", laberintoSeleccionado.estaEnJuego());
         fragment.setArguments(args);
 
         MainActivity activity =

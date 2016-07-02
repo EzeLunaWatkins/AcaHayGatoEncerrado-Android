@@ -15,7 +15,7 @@ import java.util.List;
  */
 public abstract class AbstractListAdapter<T> extends BaseAdapter {
     private Context context;
-    private List<T> objects;
+    List<T> objects;
 
     public AbstractListAdapter(Context pContext, List<T> severalObjects) {
         context = pContext;
