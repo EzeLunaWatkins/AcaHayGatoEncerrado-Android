@@ -6,10 +6,6 @@ public class MinLaberinto extends MinSeleccionable {
     private Boolean disponibilidad = false;
     private Boolean enJuego = false;
 
-    public boolean esUnLaberintoValido(String nombreLaberinto) {
-        return !nombreLaberinto.isEmpty();
-    }
-
     public Boolean estaDisponibleOEnJuego() { return estaDisponible()||estaEnJuego();}
 
     public Boolean estaDisponible() { return this.disponibilidad;}
@@ -18,13 +14,5 @@ public class MinLaberinto extends MinSeleccionable {
 
     public String getDescripcion() {
         return this.descripcion;
-    }
-
-    public void setDescripcion(final String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setDisponibilidad(Boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
     }
 }

@@ -18,7 +18,4 @@ public interface LaberintosService {
 
     @GET("/inventario")
     void getInventario(Callback<List<MinItem>> callback);
-
-    @GET("/tirar/{ItemId}")
-    void tirarItem(@retrofit.http.Path("ItemId") int id, Callback<MinItem> callback);
 }

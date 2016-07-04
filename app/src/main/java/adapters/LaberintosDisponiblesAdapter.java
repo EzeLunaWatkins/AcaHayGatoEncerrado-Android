@@ -25,16 +25,20 @@ public class LaberintosDisponiblesAdapter extends AbstractListAdapter<MinLaberin
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View row;
+        int iconoStatus;
         MinLaberinto laberinto = (MinLaberinto) getItem(position);
 
         row = generateRow(R.layout.laberinto_row, parent);
         setColumnTextView(row, R.id.row_laberinto_nombre, laberinto.getNombre());
 
-        if (laberinto.estaEnJuego()) {
-            setColumnStatus(row, R.id.check_laberinto_en_juego, R.drawable.activo);
+        if(laberinto.estaEnJuego()) {
+            iconoStatus = R.drawable.activo;
         } else {
-            setColumnStatus(row, R.id.check_laberinto_en_juego, R.drawable.inactivo);
+            iconoStatus = R.drawable.inactivo;
         }
+
+        setColumnStatus(row, R.id.check_laberinto_en_juego, iconoStatus);
+
         return row;
     }
 }
