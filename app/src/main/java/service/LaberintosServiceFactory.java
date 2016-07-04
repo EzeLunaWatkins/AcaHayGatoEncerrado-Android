@@ -4,7 +4,7 @@ import retrofit.RestAdapter;
 
 public class LaberintosServiceFactory {
 
-    static public String SERVER_IP = "192.168.0.106";
+    static public String SERVER_IP = "10.9.0.185";
     static public String API_URL = "http://"+ SERVER_IP +":9777";
 
     static public LaberintosService createLaberintosService(){
